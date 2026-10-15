@@ -64,6 +64,21 @@ require("lazy").setup({
       ]])
     end
   },
+    -- Просмотр Markdown и блок-схем Mermaid в реальном времени
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    -- Более надежный способ сборки плагина через встроенный менеджер lazy
+    build = "cd app && npm install", 
+    init = function()
+      vim.g.mkdp_auto_start = 0 -- Не открывать браузер автоматически при открытии файла
+    end,
+    config = function()
+      -- Ваша новая удобная горячая клавиша: Пробел + m + k
+      vim.keymap.set('n', '<leader>mk', ':MarkdownPreviewToggle<CR>', { silent = true, desc = 'Интерактивный алгоритм/MD' })
+    end
+  },
 }, {
   track = 'branch',
   rocks = { enabled = false }
@@ -81,6 +96,11 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.clipboard = "unnamedplus"
+-- ============================================================================
+-- КОДИРОВКИ
+-- ============================================================================
+vim.opt.encoding = "utf-8"
+vim.opt.fileencodings = "ucs-bom,utf-8,cp1251,koi8-r,cp866,latin1"
 
 vim.opt.colorcolumn = "79,88,120"
 vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 0, bg = '#333333' })
