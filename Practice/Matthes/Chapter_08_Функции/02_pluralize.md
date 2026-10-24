@@ -53,12 +53,10 @@ def pluralize(count, word1, word2, word5):
     return f"{count} {form}"
 
 
-result = pluralize(10, 'акция', 'акции', 'акций')
-print(result)
 
 # Тест:
 test_counts = range(0, 23)
 for num in test_counts:
-    res = pluralize(num, "акция", "акции", "акций")
+    res = pluralize(num, "слово", "слова", "слов")
     print(res)
 ```
