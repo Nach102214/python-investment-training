@@ -37,9 +37,11 @@ def read_broker_report(filepath):
         
     return trades
 
-# print(f"Всего сделок: {len(read_broker_report('data/Сделки.csv'))}\n")
-# print(read_broker_report('data/Сделки.csv')[0])
-# p.pprint(read_broker_report('data/Сделки.csv'), width=120)
+if __name__=='__main__':
+
+    print(f"Всего сделок: {len(read_broker_report('data/Сделки.csv'))}\n")
+    print(read_broker_report('data/Сделки.csv')[0])
+    p.pprint(read_broker_report('data/Сделки.csv'), width=120)
 
 
 
