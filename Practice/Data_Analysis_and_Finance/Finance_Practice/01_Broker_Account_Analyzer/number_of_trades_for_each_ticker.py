@@ -25,7 +25,8 @@ def number_of_trades_for_each_ticker(filepath):
         if view == "Продажа":
             counts[ticker]["Продажа"] += quantity
             counts[ticker]["Сумма продаж"] += amount
-            
+    
+    # Округляем суммы до двух знаков после запятой:
     for ticker in counts:
             counts[ticker]["Сумма покупок"] = round(counts[ticker]["Сумма покупок"], 2)
             counts[ticker]["Сумма продаж"] = round(counts[ticker]["Сумма продаж"], 2)
